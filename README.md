@@ -1,142 +1,106 @@
-# Análisis de Sentimientos para E-Commerce 🌎🛒
+# Análisis de Sentimientos Híbrido para E-Commerce 🌎🛒
 
-Esta es una plataforma de análisis de sentimientos diseñada para resolver el problema de la escasez de datos etiquetados en español para el comercio electrónico. Utiliza una Arquitectura Híbrida que aprovecha modelos Transformers entrenados con datos globales (Inglés) para realizar inferencias precisas en el mercado local (Español).
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Hugging Face](https://img.shields.io/badge/🤗%20Transformers-XLM--RoBERTa-yellow)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## 🚀 Características Principales
+es una plataforma de análisis de sentimientos desarrollada como prototipo funcional para la Maestría en Inteligencia de Negocios y Ciencia de Datos (UEES).
 
-Modelo SOTA: Utiliza xlm-roberta-base (multilingüe) ajustado con Transfer Learning.
+El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora: entrena un modelo Transformer de última generación (`xlm-roberta-base`) utilizando datasets masivos en **Inglés** (Amazon Reviews), pero permite realizar inferencias y clasificaciones en **Español** mediante una capa de traducción en tiempo real.
 
-Estrategia Cross-Lingual: Entrenado con +20,000 reseñas de Amazon en Inglés, pero capaz de procesar español mediante una capa de traducción en tiempo real.
+---
 
-Alta Precisión: Accuracy del 89.08% validado en el conjunto de prueba.
+## 🚀 Características del Proyecto
 
-Detección de Matices: Clasificación en 3 clases (Positivo, Neutro, Negativo) con lógica de umbral para manejar la incertidumbre.
+* **Modelo SOTA:** Implementación de `XLM-RoBERTa`, un modelo optimizado para tareas multilingües.
+* **Entrenamiento Robusto:** Fine-tuning realizado con +20,000 reseñas reales de productos.
+* **Inferencia Híbrida:** Capacidad de recibir texto en español, traducirlo internamente y clasificarlo con el motor analítico entrenado en inglés.
+* **Alta Precisión:** **Accuracy del 89.08%** validado en el conjunto de prueba.
+* **Manejo de Incertidumbre:** Lógica de umbral para detectar reseñas "Neutras" en un entorno de datos polarizados.
 
-🛠️ Arquitectura del Sistema
+---
 
-El proyecto sigue un flujo de datos híbrido para maximizar la calidad del análisis sin requerir un dataset masivo en español:
+## 🛠️ Arquitectura Técnica
 
+El flujo de datos diseñado para este prototipo maximiza el uso de recursos open-source disponibles:
+
+```mermaid
 graph LR
-    A[Usuario (Español)] -->|Texto: 'Llegó roto'| B(Traductor ES->EN)
-    B -->|Texto: 'Arrived broken'| C{Modelo XLM-RoBERTa}
-    C -->|Logits| D[Clasificación]
-    D -->|Resultado| E[Negativo 😡]
+    A[Usuario (Input Español)] -->|'El envío demoró mucho'| B(Capa de Traducción)
+    B -->|'Shipping took too long'| C{Modelo XLM-RoBERTa}
+    C -->|Análisis de Atención| D[Clasificación Softmax]
+    D -->|Resultado Final| E[Negativo 😡]
+Ingesta: El usuario ingresa una reseña en español.
 
+Pre-procesamiento: Normalización y traducción automática (ES -> EN) usando deep-translator.
 
-Ingesta: Entrada de texto en Español.
+Inferencia: El modelo predice la polaridad (Positivo, Neutro, Negativo).
 
-Adaptación: Traducción automática al inglés usando deep-translator.
+Post-procesamiento: Aplicación de reglas de negocio para refinar la clase neutra.
 
-Inferencia: El modelo Transformer (fine-tuned) procesa el texto en inglés.
+📂 Contenido del Repositorio
+Este repositorio contiene los 3 Notebooks que componen el pipeline completo de ML:
 
-Salida: Etiqueta de sentimiento final.
+📘 01_EDA_Limpieza.ipynb:
 
-📂 Estructura del Proyecto
+Ingesta del dataset Amazon Product Reviews.
 
-El repositorio está organizado en 3 Notebooks principales que cubren el ciclo de vida del ML:
+Limpieza de texto con Expresiones Regulares (Regex).
 
-01_EDA_Limpieza.ipynb:
+Estratificación de datos (Train/Test Split).
 
-Ingesta del dataset Amazon Product Reviews (Inglés).
+📙 02_Entrenamiento.ipynb:
 
-Limpieza de texto (Regex) y normalización.
+Configuración del Tokenizador AutoTokenizer.
 
-División estratificada (80/20) para manejar el desbalance de clases.
+Entrenamiento con la API Trainer de Hugging Face (GPU T4).
 
-02_Entrenamiento.ipynb:
+Persistencia del modelo entrenado.
 
-Tokenización con AutoTokenizer (XLM-R).
+📗 03_Evaluacion_Inferencia.ipynb:
 
-Fine-tuning usando la API Trainer de Hugging Face.
+Evaluación de métricas (Matriz de Confusión, F1-Score).
 
-Persistencia del modelo y tokenizador.
+Función de predicción final para consumo del modelo con traducción integrada.
 
-03_Evaluacion_Inferencia.ipynb:
+💻 Instalación y Uso
+Este proyecto está diseñado para ejecutarse en Google Colab. Si deseas correrlo localmente:
 
-Cálculo de métricas (Matriz de Confusión, F1-Score).
+Clonar el repositorio:
 
-Implementación de la función predecir_sentimiento() con traducción integrada.
+Bash
 
-💻 Instalación y Requisitos
+git clone [https://github.com/tu-usuario/EcoSent-IA.git](https://github.com/tu-usuario/EcoSent-IA.git)
+cd EcoSent-IA
+Instalar dependencias:
 
-Este proyecto fue desarrollado en Google Colab. Para ejecutarlo localmente, necesitas las siguientes dependencias:
+Bash
 
 pip install torch transformers accelerate datasets scikit-learn pandas deep-translator emoji
+Ejecutar inferencia (Ejemplo en Python):
 
-
-🤖 Ejemplo de Uso (Inferencia)
-
-Una vez cargado el modelo entrenado, puedes realizar predicciones en español así:
+Python
 
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from deep_translator import GoogleTranslator
 import torch
 
-# 1. Cargar Modelo
-MODEL_PATH = "./modelos/sentimiento_xlmroberta_v1"
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+# Cargar modelo (asegúrate de tener la carpeta del modelo descargada)
+modelo_path = "./modelos/sentimiento_xlmroberta_v1"
+tokenizer = AutoTokenizer.from_pretrained(modelo_path)
+model = AutoModelForSequenceClassification.from_pretrained(modelo_path)
 
-# 2. Función de Predicción Híbrida
-def predecir(texto_espanol):
-    # Traducir
+def analizar_sentimiento(texto):
+    # Capa de traducción Híbrida
     traductor = GoogleTranslator(source='es', target='en')
-    texto_en = traductor.translate(texto_espanol)
-    
-    # Tokenizar e Inferir
+    texto_en = traductor.translate(texto)
+
+    # Inferencia
     inputs = tokenizer(texto_en, return_tensors="pt", truncation=True, max_length=128)
     with torch.no_grad():
         logits = model(**inputs).logits
-    
-    # Post-procesamiento
-    pred_idx = logits.argmax(-1).item()
-    etiquetas = {0: "Negativo 🔴", 1: "Neutro 🟡", 2: "Positivo 🟢"}
-    
-    return etiquetas[pred_idx]
+    return logits.argmax(-1).item()
 
-# 3. Prueba
-print(predecir("El producto es excelente, llegó muy rápido."))
-# Salida: Positivo 🟢
-
-
-📊 Resultados Obtenidos
-
-Métrica
-
-Valor
-
-Descripción
-
-Accuracy
-
-89.08%
-
-Exactitud global del modelo.
-
-F1-Score
-
-0.8456
-
-Promedio ponderado (Weighted).
-
-Loss
-
-< 0.40
-
-Convergencia estable en 1 época.
-
-Nota: Se observó un desafío en la detección de la clase "Neutra" debido al desbalance del dataset original (<2% de muestras neutras). Se recomienda usar un umbral de confianza para mejorar esto en producción.
-
-👥 Autores (Grupo 3)
-
-Proyecto desarrollado para la Maestría en Inteligencia de Negocios y Ciencia de Datos - UEES.
-
-Liz Eliana Castillo Zamora
-
-Pablo Mauricio Castro Hinostroza
-
-Erick Sebastián Rivas
-
-Ángel Israel Romero Medina
-
-Made with ❤️  by Group 3.
+print(analizar_sentimiento("¡Me encantó el producto, llegó rapidísimo!")) 
+# Resultado esperado: 2 (Positivo)
