@@ -1,8 +1,8 @@
-#Análisis de Sentimientos para E-Commerce 🌎🛒
+# Análisis de Sentimientos para E-Commerce 🌎🛒
 
 Esta es una plataforma de análisis de sentimientos diseñada para resolver el problema de la escasez de datos etiquetados en español para el comercio electrónico. Utiliza una Arquitectura Híbrida que aprovecha modelos Transformers entrenados con datos globales (Inglés) para realizar inferencias precisas en el mercado local (Español).
 
-#🚀 Características Principales
+## 🚀 Características Principales
 
 Modelo SOTA: Utiliza xlm-roberta-base (multilingüe) ajustado con Transfer Learning.
 
