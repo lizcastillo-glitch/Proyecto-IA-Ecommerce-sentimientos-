@@ -5,7 +5,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-es una plataforma de análisis de sentimientos desarrollada como prototipo funcional para la Maestría en Inteligencia de Negocios y Ciencia de Datos (UEES).
+La presente plataforma de análisis de sentimientos desarrollada como prototipo funcional para la Maestría en Inteligencia de Negocios y Ciencia de Datos (UEES).
 
 El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora: entrena un modelo Transformer de última generación (`xlm-roberta-base`) utilizando datasets masivos en **Inglés** (Amazon Reviews), pero permite realizar inferencias y clasificaciones en **Español** mediante una capa de traducción en tiempo real.
 
