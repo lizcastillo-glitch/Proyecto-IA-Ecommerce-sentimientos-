@@ -24,7 +24,7 @@ El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora:
 ## 📂 Contenido del Repositorio
 El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Notebooks`:
 
-📘 01_EDA_Limpieza.ipynb:[Eda_y_limpieza](Notebooks/01_Eda_y_limpieza.ipynb)
+📘 [01_Eda_y_limpieza](Notebooks/01_Eda_y_limpieza.ipynb)
 
 Ingesta del dataset Amazon Product Reviews.
 
