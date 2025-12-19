@@ -26,23 +26,23 @@ El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Noteboo
 
 ## 📘 [01_Eda_y_limpieza](Notebooks/01_Eda_y_limpieza.ipynb)
 
-* **Ingesta del dataset Amazon Product Reviews.
+* **Ingesta del dataset Amazon Product Reviews.**
 
-* **Limpieza de texto con Expresiones Regulares (Regex).
+* **Limpieza de texto con Expresiones Regulares (Regex).**
 
-* **Estratificación de datos (Train/Test Split).
+* **Estratificación de datos (Train/Test Split).**
 
 ## 📙 [02 Entranamiento](Notebooks/02_Entrenamiento_modelo.ipynb)
 
-Configuración del Tokenizador AutoTokenizer.
+* **Configuración del Tokenizador AutoTokenizer.**
 
-Entrenamiento con la API Trainer de Hugging Face (GPU T4).
+* **Entrenamiento con la API Trainer de Hugging Face (GPU T4).**
 
-Persistencia del modelo entrenado.
+* **Persistencia del modelo entrenado.**
 
-📗 03_Evaluacion_Inferencia.ipynb:
+## 📗 [03 Evaluación](03_Evaluacion_comparacion.ipynb)
 
-Evaluación de métricas (Matriz de Confusión, F1-Score).
+* **Evaluación de métricas (Matriz de Confusión, F1-Score).**
 
-Función de predicción final para consumo del modelo con traducción integrada.
+* **Función de predicción final para consumo del modelo con traducción integrada.**
 
