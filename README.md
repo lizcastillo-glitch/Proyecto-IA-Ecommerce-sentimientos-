@@ -46,3 +46,14 @@ El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Noteboo
 
 * **Función de predicción final para consumo del modelo con traducción integrada.**
 
+## 👥 Autores - Grupo 3
+
+* Liz Eliana Castillo Zamora
+
+* Pablo Mauricio Castro Hinostroza
+
+* Erick Sebastián Rivas
+
+* Ángel Israel Romero Medina
+
+**Proyecto académico para la asignatura de Inteligencia Artificial - UEES.**
