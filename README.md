@@ -24,15 +24,15 @@ El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora:
 ## 📂 Contenido del Repositorio
 El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Notebooks`:
 
-📘 [01_Eda_y_limpieza](Notebooks/01_Eda_y_limpieza.ipynb)
+## 📘 [01_Eda_y_limpieza](Notebooks/01_Eda_y_limpieza.ipynb)
 
-Ingesta del dataset Amazon Product Reviews.
+* **Ingesta del dataset Amazon Product Reviews.
 
-Limpieza de texto con Expresiones Regulares (Regex).
+* **Limpieza de texto con Expresiones Regulares (Regex).
 
-Estratificación de datos (Train/Test Split).
+* **Estratificación de datos (Train/Test Split).
 
-📙 02_Entrenamiento.ipynb:
+## 📙 [02 Entranamiento](Notebooks/02_Entrenamiento_modelo.ipynb)
 
 Configuración del Tokenizador AutoTokenizer.
 
