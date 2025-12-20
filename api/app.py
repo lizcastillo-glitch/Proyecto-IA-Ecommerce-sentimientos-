@@ -5,9 +5,9 @@ from deep_translator import GoogleTranslator
 import torch.nn.functional as F
 
 # Configuración de la página
-st.set_page_config(page_title="EcoSent-IA", page_icon="🛒")
+st.set_page_config(page_title="IA Ecommerce Amazon Review Dashboard", page_icon="🛒")
 
-st.title("🛒 EcoSent-IA: Análisis de Sentimientos")
+st.title("🛒 IA Ecommerce Amazon Review Dashboard : Análisis de Sentimientos")
 st.markdown("Prototipo de clasificación híbrida (Español -> Inglés -> IA).")
 
 # --- 1. CARGA DEL MODELO ---
