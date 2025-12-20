@@ -13,6 +13,7 @@ El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora:
 
 ## 🚀 Características del Proyecto
 
+* **Dataset:** Amazon Product Reviews. 
 * **Modelo SOTA:** Implementación de `XLM-RoBERTa`, un modelo optimizado para tareas multilingües.
 * **Entrenamiento Robusto:** Fine-tuning realizado con +20,000 reseñas reales de productos.
 * **Inferencia Híbrida:** Capacidad de recibir texto en español, traducirlo internamente y clasificarlo con el motor analítico entrenado en inglés.
@@ -22,6 +23,11 @@ El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora:
 ---
 
 ## 📂 Contenido del Repositorio
+
+**Lenguaje y Entorno:**
+Python 3.10+: Lenguaje base para todo el procesamiento.
+Google Colab: Entorno de ejecución en la nube con aceleración por hardware (GPU T4) para el entrenamiento del Transformer.
+
 El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Notebooks`:
 
 ## 📘 [01_Eda_y_limpieza](Notebooks/01_Eda_y_limpieza.ipynb)
