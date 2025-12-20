@@ -1,28 +1,17 @@
-# Plataforma de Análisis de Sentimientos en tiempo real para E-Commerce basada en técnicas de procesamiento del lenguaje natural y modelos Transformers. 🌎🛒
+# 🛒 Análisis de Sentimientos en Reseñas de Amazon con XLM-Roberta
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Hugging Face](https://img.shields.io/badge/🤗%20Transformers-XLM--RoBERTa-yellow)
+![HuggingFace](https://img.shields.io/badge/Hugging%20Face-Transformers-orange)
 ![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Prototipo-yellow)
 
-La presente plataforma de análisis de sentimientos desarrollada como prototipo funcional para la Maestría en Inteligencia de Negocios y Ciencia de Datos de la Universidad Espíritu Santo.
+Este proyecto implementa un modelo de **Procesamiento de Lenguaje Natural (NLP)** capaz de clasificar reseñas de productos de Amazon en tres categorías: **Positivo, Neutro y Negativo**. 
 
-El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora: entrena un modelo Transformer de última generación (`xlm-roberta-base`) utilizando datasets masivos en **Inglés** (Amazon Reviews), pero permite realizar inferencias y clasificaciones en **Español** mediante una capa de traducción en tiempo real.
+Utiliza el modelo pre-entrenado **XLM-Roberta** y una estrategia de traducción para permitir inferencia multilingüe (Español/Inglés).
 
----
+## 🗂️ Estructura del Proyecto
 
-## 🚀 Características del Proyecto
-
-* **Dataset:** Amazon Product Reviews. 
-* **Modelo SOTA:** Implementación de `XLM-RoBERTa`, un modelo optimizado para tareas multilingües.
-* **Entrenamiento Robusto:** Fine-tuning realizado con +20,000 reseñas reales de productos.
-* **Inferencia Híbrida:** Capacidad de recibir texto en español, traducirlo internamente y clasificarlo con el motor analítico entrenado en inglés.
-* **Alta Precisión:** **Accuracy del 89.08%** validado en el conjunto de prueba.
-* **Manejo de Incertidumbre:** Lógica de umbral para detectar reseñas "Neutras" en un entorno de datos polarizados.
-
----
-
-## 📂 Contenido del Repositorio
+El flujo de trabajo se divide en 4 etapas principales (Notebooks):
 
 **Lenguaje y Entorno:**
 * Python 3.10+: Lenguaje base para todo el procesamiento.
@@ -51,6 +40,32 @@ El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Noteboo
 * **Evaluación de métricas (Matriz de Confusión, F1-Score).**
 
 * **Función de predicción final para consumo del modelo con traducción integrada.**
+
+## 📊 Dataset
+
+Se utilizó el conjunto de datos **Amazon Product Reviews** disponible en Kaggle.
+* **Total de muestras:** ~21,000 reseñas.
+* **Clases:** * `Positive` (2): ~18,800
+    * `Negative` (0): ~2,100
+    * `Neutral` (1): ~300
+
+> ⚠️ **Nota:** El dataset presenta un fuerte desbalance de clases, predominando masivamente las reseñas positivas.
+
+## 🛠️ Tecnologías Utilizadas
+
+* **Python** (Entorno Google Colab)
+* **Transformers (Hugging Face):** Para el modelo XLM-Roberta y Tokenizer.
+* **PyTorch:** Backend de Deep Learning.
+* **Scikit-Learn:** Para métricas y división de datos.
+* **Deep-Translator:** Para pipeline de traducción en inferencia (ES -> EN).
+* **Pandas & Matplotlib:** Manipulación y visualización de datos.
+
+## 🚀 Instalación y Uso
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/tu-usuario/amazon-sentiment-analysis.git](https://github.com/tu-usuario/amazon-sentiment-analysis.git)
+   cd amazon-sentiment-analysis
 
 ## 👥 Autores - Grupo 3
 
