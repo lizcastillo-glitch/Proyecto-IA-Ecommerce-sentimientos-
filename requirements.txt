@@ -1,1 +1,22 @@
+# Deep Learning & NLP
+torch
+transformers
+accelerate
+datasets
 
+# Manipulación de Datos
+pandas
+numpy
+
+# Traducción (Componente Híbrido)
+deep-translator
+
+# Métricas y Evaluación
+scikit-learn
+
+# Visualización (Matriz de confusión, EDA)
+matplotlib
+seaborn
+
+# Limpieza de Texto
+emoji
