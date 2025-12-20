@@ -25,8 +25,8 @@ El proyecto implementa una **Arquitectura Híbrida (Cross-Lingual)** innovadora:
 ## 📂 Contenido del Repositorio
 
 **Lenguaje y Entorno:**
-Python 3.10+: Lenguaje base para todo el procesamiento.
-Google Colab: Entorno de ejecución en la nube con aceleración por hardware (GPU T4) para el entrenamiento del Transformer.
+* Python 3.10+: Lenguaje base para todo el procesamiento.
+* Google Colab: Entorno de ejecución en la nube con aceleración por hardware (GPU T4) para el entrenamiento del Transformer.
 
 El laboratorio consta de 3 notebooks principales ubicados en la carpeta `Notebooks`:
 
